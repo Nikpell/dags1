@@ -30,10 +30,11 @@ def start_task():
 
 
 def get_weather():
-
-    answer = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Batumi, '
-                          'ge&APPID=')
-    return round(float(answer.json()['main']['temp']) - 273.15, 2)
+    with open('dags/Screens/pass.txt', 'r') as file:
+        password = file.read()
+        answer = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Batumi, '
+                          'ge&APPID=' + password)
+        return round(float(answer.json()['main']['temp']) - 273.15, 2)
 
 
 def chose(x):
