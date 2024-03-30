@@ -30,8 +30,9 @@ def start_task():
 
 
 def get_weather():
+
     answer = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Batumi, '
-                          'ge&APPID=ec912c8be3e701ac66a5b1ed61e76e16')
+                          'ge&APPID=')
     return round(float(answer.json()['main']['temp']) - 273.15, 2)
 
 
